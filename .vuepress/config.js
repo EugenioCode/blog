@@ -1,5 +1,5 @@
 module.exports = {
-  base:"https://eugeniocode.github.io/vuepress-blog/vuepress-blog/",
+  "base":"/vuepress-blog/",
   "title": "Jianjun's Blog",
   "description": "若不接受自己的卑微与渺小，我们很难发自内心地去尊重他人",
   "dest": "public",
