@@ -24,9 +24,9 @@ jobs:
     - name: vuepress-deploy
       uses: jenkey2011/vuepress-deploy@master
       env:
-        ACCESS_TOKEN: ${{ secrets.GH_TOKEN }} // github Token
-        TARGET_REPO: EugenioCode/vuepress-blog  // 仓库
+        ACCESS_TOKEN: ${{ secrets.GH_TOKEN }}
+        TARGET_REPO: EugenioCode/eugenio.github.io
 
-        TARGET_BRANCH: gh-pages    // build 之后推到的分支名
+        TARGET_BRANCH: gh-pages
         BUILD_SCRIPT: yarn && yarn build
-        BUILD_DIR: public     //build 之后的目录
+        BUILD_DIR: public
