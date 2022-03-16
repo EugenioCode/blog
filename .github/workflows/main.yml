@@ -22,7 +22,7 @@ jobs:
       uses: actions/checkout@master
 
     - name: vuepress-deploy
-      uses: jenkey2011/vuepress-deploy@master
+      uses: EugenioCode/vuepress-blog@master
       env:
         ACCESS_TOKEN: ${{ secrets.GH_TOKEN }} // github Token
         TARGET_REPO: EugenioCode/vuepress-blog  // 仓库
