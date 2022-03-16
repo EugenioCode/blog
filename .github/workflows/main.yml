@@ -25,7 +25,7 @@ jobs:
       uses: jenkey2011/vuepress-deploy@master
       env:
         ACCESS_TOKEN: ${{ secrets.GH_TOKEN }}
-        TARGET_REPO: EugenioCode/eugenio.github.io
+        TARGET_REPO: EugenioCode/vuepress-blog
 
         TARGET_BRANCH: gh-pages
         BUILD_SCRIPT: yarn && yarn build
