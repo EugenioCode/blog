@@ -19,10 +19,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
-      uses: actions/checkout@master
+      uses: actions/checkout@main
 
     - name: vuepress-deploy
-      uses: EugenioCode/vuepress-blog@master
+      uses: EugenioCode/vuepress-blog@main
       env:
         ACCESS_TOKEN: ${{ secrets.GH_TOKEN }} // github Token
         TARGET_REPO: EugenioCode/vuepress-blog  // 仓库
