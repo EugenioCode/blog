@@ -4,6 +4,7 @@ module.exports = {
   "description": "若不接受自己的卑微与渺小，我们很难发自内心地去尊重他人",
   "dest": "public",
   "head": [
+    ["link", { rel: "stylesheet", href: "https://at.alicdn.com/t/font_3259116_75q75ougpj.css" }],
     [
       "link",
       {
@@ -21,6 +22,7 @@ module.exports = {
   ],
   "theme": "reco",
   "themeConfig": {
+    "subSidebar": 'auto',
     "nav": [
       {
         "text": "Home",
@@ -34,39 +36,54 @@ module.exports = {
       // },
       {
         "text": "代码工具",
-        "icon": "reco-document",
         "items": [
           {
             "text": "Git",
-            "link": "/blogs/git.md"
+            "link": "/blogs/git.md",
+            "icon": "iconfont icon-git"
           }
         ]
       },
       {
         "text": "前端",
-        "icon": "reco-document",
         "items": [
           {
             "text": "Html",
-            "link": "/blogs/html.md"
+            "link": "/blogs/html.md",
+            "icon": "iconfont icon-HTML"
           },
           {
             "text": "Vue",
-            "link": "/blogs/vue.md"
+            "link": "/blogs/vue.md",
+            "icon": "iconfont icon-vuejs"
           }
         ]
       },
-      // {
-      //   "text": "Contact",
-      //   "icon": "reco-message",
-      //   "items": [
-      //     {
-      //       "text": "GitHub",
-      //       "link": "https://github.com/recoluan",
-      //       "icon": "reco-github"
-      //     }
-      //   ]
-      // }
+      {
+        "text": "服务端",
+        "items": [
+          {
+            "text": "Egg",
+            "link": "/blogs/egg.md",
+            "icon": "iconfont icon-egg"
+          }
+        ]
+      },
+      {
+        "text": "数据库",
+        "items": [
+          {
+            "text": "Mysql",
+            "link": "/blogs/mysql.md",
+            "icon": "iconfont icon-mysql1"
+          }
+        ]
+      },
+      {
+        "text": "Contact",
+        "icon": "reco-github",
+        "link": "https://github.com/EugenioCode",
+      }
     ],
     "sidebar": {
       // "/docs/theme-reco/": [
