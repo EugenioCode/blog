@@ -6,10 +6,10 @@ tags:
  - node
  - mysql
 ---
-
 :::tip
 MySQL 是最流行的关系型数据库管理系统，在 WEB 应用方面 MySQL 是最好的 RDBMS(Relational Database Management System：关系数据库管理系统)应用软件之一。
 :::
+<!-- more -->
 
 # Mysql使用
 ## 一、基础知识
@@ -39,15 +39,15 @@ mysql -u root -p
 create database <要创建的数据库名>;
 ```
 > 创建 `newtable` 数据库
-```bash
+```sql
 create database newtable;
 ```
 ### 2.3 查看已有的数据库
-```bash
+```sql
 show databases;
 ```
 控制台会打印出已经创建的数据库
-```bash
+```sql
 +--------------------+
 | Database           |
 +--------------------+
@@ -67,7 +67,7 @@ show databases;
 drop database <数据库名>;
 ```
 > 删除 `newtable` 数据库
-```bash
+```sql
 drop database newtable;
 ```
 
@@ -76,7 +76,30 @@ drop database newtable;
 use <数据库名>
 ```
 > 使用 `eggapi` 数据库
-```bash
+```sql
 use eggapi;
 ```
+### 2.6 创建数据表
+```bash
+CREATE TABLE table_name (column_name column_type);
+```
+> 创建名为 `newtable` 的 数据表
+```sql
+CREATE TABLE IF NOT EXISTS `newtable` (
+ `id` INT UNSIGNED AUTO_INCREMENT,
+ `title` VARCHAR(100) NOT NULL,
+ `author` VARCHAR(40) NOT NULL,
+ PRIMARY KEY ( `id` )
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+```
+
+### 2.7 删除数据表
+```bash
+drop table <table_name>;
+```
+> 删除 `newtable` 数据表
+```sql
+drop table newtable;
+```
+
 
