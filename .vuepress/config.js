@@ -3,8 +3,14 @@ module.exports = {
   "title": "Jianjun Yang's Blog",
   "description": "若不接受自己的卑微与渺小，我们很难发自内心地去尊重他人",
   "dest": "public",
+  plugins: ['one-click-copy', {
+    copySelector: ['div[class*="language-"] pre', 'div[class*="aside-code"] aside'],
+    copyMessage: '代码已复制',
+    duration: 300,
+    showInMobile: false
+  }],
   "head": [
-    ["link", { rel: "stylesheet", href: "https://at.alicdn.com/t/font_3259116_75q75ougpj.css" }],
+    ["link", { rel: "stylesheet", href: "https://at.alicdn.com/t/font_3259116_xcfbi7axwgq.css" }],
     [
       "link",
       {
@@ -35,12 +41,17 @@ module.exports = {
       //   "icon": "reco-date"
       // },
       {
-        "text": "代码工具",
+        "text": "工具/包",
         "items": [
           {
             "text": "Git",
             "link": "/blogs/git.md",
             "icon": "iconfont icon-git"
+          },
+          {
+            "text": "Npm",
+            "link": "/blogs/npm.md",
+            "icon": "iconfont icon-npm"
           }
         ]
       },
@@ -118,7 +129,7 @@ module.exports = {
       //   "link": "https://vuepress-theme-reco.recoluan.com"
       // }
     ],
-    "logo": "/logo.png",
+    "logo": "/avatar.png",
     "search": true,
     "searchMaxSuggestions": 10,
     "lastUpdated": "Last Updated",
