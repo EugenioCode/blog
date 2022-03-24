@@ -123,6 +123,66 @@ ctx.status = 201;
 ```
 ![](https://raw.githubusercontent.com/EugenioCode/picBed/main/20220322230545.png)
 
+### 1.7 post请求
+- 配置csrf跨域相关配置
+  
+  安装跨域插件
 
+  ```bash
+  npm i egg-cors --savew
+  ```
 
+  配置config下的plugin.js
 
+  ```js
+  'use strict';
+
+  /** @type Egg.EggPlugin */
+  module.exports = {
+    // had enabled by egg
+    // static: {
+    //   enable: true,
+    // }
+    cors: {
+      enable: true,
+      package: 'egg-cors',
+    },
+  };
+  ```
+
+  配置config下的config.default.js
+
+  ```javascript
+  // config.default.js
+  const userConfig = {
+    // 关闭crsf,开启跨域
+    security: {
+      csrf: {
+        enable: false,
+      },
+      domainWhiteList: [],
+    },
+    // 允许跨域方法
+    cors: {
+      origin: '*',
+      allowMethods: 'GET, PUT,  POST, DELETE, PATCH',
+    },
+  };
+  ```
+
+- post请求的参数
+  > 在controller中，通过 ctx.request.body 拿参数
+  ```js
+  async createUser() {
+    const { ctx } = this;
+    console.log(ctx.request.body, 'post传参');
+    const { username, age } = ctx.request.body;
+    const result = { username, age };
+    ctx.body = {
+      code: 200,
+      result,
+      message: 'success',
+    };
+  }
+  ```
+  ![](https://raw.githubusercontent.com/EugenioCode/picBed/main/20220324232947.png)
