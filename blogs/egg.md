@@ -186,3 +186,5 @@ ctx.status = 201;
   }
   ```
   ![](https://raw.githubusercontent.com/EugenioCode/picBed/main/20220324232947.png)
+
+## 二、Egg.js渐入
