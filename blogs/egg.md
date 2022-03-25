@@ -14,7 +14,7 @@ Egg.js为企业级框架和应用而生的Node.js框架，Egg（简写）奉行�
 
 <!-- more -->
 
-##  一、 Egg.js初始
+##  一、 Egg.js初入
 
 ### 1.1 安装
   ```bash
@@ -188,3 +188,32 @@ ctx.status = 201;
   ![](https://raw.githubusercontent.com/EugenioCode/picBed/main/20220324232947.png)
 
 ## 二、Egg.js渐入
+
+### 2.1 配置mysql数据库
+- 安装对应的插件 *egg-mysql*
+  ```bash
+  npm i --save egg-mysql
+  ```
+- 使用插件
+  ```js
+  // config/plugin.js
+  exports.mysql = {
+    enable: true,
+    package: 'egg-mysql',
+  };
+  ```
+- 配置数据库连接信息
+  ```js
+  // 单数据库信息配置
+    mysql: {
+      client: {
+        host: '127.0.0.1',
+        port: '3306',
+        user: 'root',
+        password: '',
+        database: 'eggapi',
+      },
+      app: true,
+      agent: false,
+    },
+  ```

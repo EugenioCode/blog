@@ -10,7 +10,7 @@ module.exports = {
     showInMobile: false
   }],
   "head": [
-    ["link", { rel: "stylesheet", href: "https://at.alicdn.com/t/font_3259116_xcfbi7axwgq.css" }],
+    ["link", { rel: "stylesheet", href: "https://at.alicdn.com/t/font_3259116_yceeoowda6e.css" }],
     [
       "link",
       {
@@ -28,12 +28,12 @@ module.exports = {
   ],
   "theme": "reco",
   "themeConfig": {
+    modePicker: false,
     "subSidebar": 'auto',
     "nav": [
       {
         "text": "Home",
         "link": "/",
-        "icon": "reco-home"
       },
       // {
       //   "text": "时间线",
@@ -61,12 +61,12 @@ module.exports = {
           {
             "text": "Html",
             "link": "/blogs/html.md",
-            "icon": "iconfont icon-HTML"
+            "icon": "iconfont icon-html5"
           },
           {
             "text": "Vue",
             "link": "/blogs/vue.md",
-            "icon": "iconfont icon-vuejs"
+            "icon": "iconfont icon-vue"
           }
         ]
       },
@@ -76,7 +76,7 @@ module.exports = {
           {
             "text": "Egg",
             "link": "/blogs/egg.md",
-            "icon": "iconfont icon-egg"
+            "icon": "iconfont icon-Egg"
           }
         ]
       },
@@ -86,7 +86,7 @@ module.exports = {
           {
             "text": "Mysql",
             "link": "/blogs/mysql.md",
-            "icon": "iconfont icon-mysql1"
+            "icon": "iconfont icon-mysql"
           }
         ]
       },
