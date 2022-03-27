@@ -217,3 +217,89 @@ ctx.status = 201;
       agent: false,
     },
   ```
+### 2.2 编写CURD语句
+- 增 (insert)
+  
+  可以直接使用 `insert` 方法插入一条记录。
+  > service层
+  ```js
+  // app/service/user.js
+  async insert(info) {
+    const user = await this.app.mysql.insert('user', info);
+    return { user };
+  }
+  ```
+  > controller层
+  ```js
+  // app/controller/user.js
+  async insertUser() {
+    const { ctx } = this;
+    const userInfo = ctx.request.body;
+    const result = await ctx.service.user.insert(userInfo);
+    if (result.user.affectedRows === 1) {
+      ctx.body = {
+        code: 200,
+        message: '用户创建成功',
+      };
+    } else {
+      ctx.body = {
+        code: 200,
+        message: '用户创建失败',
+      };
+    }
+
+  }
+  ```
+  > router路由
+  ```js
+  router.post('/user/insertUser', controller.user.insertUser);
+  ```
+
+  ![](https://raw.githubusercontent.com/EugenioCode/picBed/main/20220327223430.png)
+- 删 (delete)
+- 改 (update)
+- 查 (get/select)
+  
+  可以直接使用 `get` 方法或 `select` 方法获取一条或多条记录。`select` 方法支持条件查询与结果的定制。
+  - 查询一条记录
+    > service层
+    ```js
+    async findById(uid) {
+      const user = await this.app.mysql.get('user', { id: uid });
+      return { user };
+    }
+    ```
+    > controller层
+    ```js
+    async findUserById() {
+      const { ctx } = this;
+      const { userId } = ctx.request.body;
+      const result = await ctx.service.user.findById(userId);
+      ctx.body = {
+        code: 200,
+        result,
+        message: 'success',
+      };
+    }
+    ```
+    ![](https://raw.githubusercontent.com/EugenioCode/picBed/main/20220327224505.png)
+  - 查询所有记录
+    > service层
+    ```js
+    async findAll() {
+      const users = await this.app.mysql.select('user');
+      return { users };
+    }
+    ```
+    >controller层
+    ```js
+    async findAllUser() {
+      const { ctx } = this;
+      const result = await ctx.service.user.findAll();
+      ctx.body = {
+        code: 200,
+        result,
+        message: 'success',
+      };
+    }
+    ```
