@@ -78,11 +78,14 @@ Git 是一个开源的分布式版本控制系统，用于敏捷高效地处理�
   git add [file1] [file2]
   ```
   ```bash
-  # 删除工作区指定文件，多个文件用空格隔开
+  # 删除工作区指定文件，多个文件用空格隔开,并且将这次删除放入暂存区
   git rm [file1] [file2]
 
   # 停止追踪指定文件，但该文件会保留在工作区
   git rm --cached [file]
+
+  # 改名文件，并且将这个改名放入暂存区
+  git mv [file-original] [file-renamed]
   ```
 
 ### 3.2 提交代码
@@ -174,5 +177,65 @@ git revert [commit-id]
 git reset --hard [commit-id]
 git reset --soft [commit-id]
 ```
-> 场景：提交了错误代码，远程仓库不是受保护的，并且
+### 3.6 变基
+```bash
+git rebase
+```
 
+## 四、实际业务场景
+
+### 场景一：Bug分支
+******
+**场景描述**：当你接到一个修复一个代号101的bug的任务时，很自然地，你想创建一个分支issue-101来修复它，但是，当前正在dev上进行的工作还没有提交。并不是你不想提交，而是工作只进行到一半，还没法提交，预计完成还需1天时间。但是，必须在两个小时内修复该bug，怎么办？
+******
+
+Git还提供了一个`stash`功能，可以把当前工作现场“储藏”起来，等以后恢复现场后继续工作
+```bash
+git stash
+```
+现在，用`git status`查看工作区，就是干净的（除非有没有被Git管理的文件），因此可以放心地创建分支来修复bug。
+
+1. 首先确定要在哪个分支上修复bug，假定需要在`master`分支上修复，就从`master`创建临时分支
+    ```bash
+    git checkout master
+    ```
+    ```bash
+    git checkout -b issue-101
+    ```
+2. 修复bug，然后提交
+   ```bash
+   git add readme.txt 
+
+   git commit -m "fix bug 101"
+   ```
+3. 修复完成后，切换到`master`分支，并完成合并，最后删除`issue-101`分支
+   ```bash
+   git switch master
+
+   git merge --no-ff -m "merged bug fix 101" issue-101
+   ```
+4. 现在，是时候接着回到dev分支干活了！
+   ```bash
+   git switch dev
+
+   git status
+   ```
+   - 工作区是干净的，刚才的工作现场存到哪去了？用git stash list命令看看：
+      ```bash
+      git stash list
+      ```
+    - 工作现场还在，Git把stash内容存在某个地方了，但是需要恢复一下，有两个办法：
+  
+      一是用`git stash apply`恢复，但是恢复后，stash内容并不删除，你需要用`git stash drop`来删除；
+      
+      另一种方式是用`git stash pop`，恢复的同时把stash内容也删了
+
+### 场景二：选择某个提交进行合并
+******
+**场景描述**：对于多分支的代码库，将代码从一个分支转移到另一个分支是常见需求。
+当我们在一个分支上开发了两个功能时，代码快要合并时被告知有一个功能不需要了，这个时候，我们只需要将开发分支的部分提交合并到master分支。
+******
+1. 基本用法
+   ```bash
+   git cherry-pick <commitHash>
+   ```
