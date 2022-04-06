@@ -10,7 +10,7 @@ module.exports = {
     showInMobile: false
   }],
   "head": [
-    ["link", { rel: "stylesheet", href: "https://at.alicdn.com/t/font_3259116_yceeoowda6e.css" }],
+    ["link", { rel: "stylesheet", href: "https://at.alicdn.com/t/font_3259116_zemurtec45.css" }],
     [
       "link",
       {
@@ -52,6 +52,11 @@ module.exports = {
             "text": "Npm",
             "link": "/blogs/npm.md",
             "icon": "iconfont icon-npm"
+          },
+          {
+            "text": "Mac软件",
+            "link": "/blogs/mac.md",
+            "icon": "iconfont icon-macOS"
           }
         ]
       },
