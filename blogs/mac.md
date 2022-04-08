@@ -69,28 +69,42 @@
   
   开源软件
 
-  终端与VSCode命令行的提示i
+  终端与VSCode命令行的提示
 
 ### 菜单栏
-- Hidden Bar
-- uBar
+- [Hidden Bar](https://apps.apple.com/app/hidden-bar/id1452453066)
+  
+  一个超轻的 MacOS 实用程序，有助于隐藏菜单栏图标,当顶部菜单很多的时候，这个软件就很实用了，可以在应用商店免费下载
+  
+- [uBar](https://brawersoftware.com/products/ubar)
+  
+  类似windows的底部菜单栏
 
 ### 解压缩
 
-- Keka
+- [Keka](https://www.keka.io/en/)
+  
+  在App Store里面下载需要30元，在官网免费下载，丑但是很好用的解压缩神器
 
 ### 视频播放器
-- IINA
+- [IINA](https://www.iina.io/)
+  
+  苹果 Mac 平台上最强的好用万能视频播放器
 
 ### 系统清理
-- Clean My Mac X
-- Tencent Lemon
+- [Clean My Mac X](https://www.mycleanmymac.com/)
+  
+- [Tencent Lemon](https://lemon.qq.com/)
 
 ### 分屏
-- Magnet
+- [Magnet](https://apps.apple.com/cn/app/magnet/id441258766?mt=12)
+  
+  Magnet 一款Mac下的窗口分屏软件，让当前活动窗口快速变换位置到屏幕左边、屏幕右边或者角落，中间，全屏宽等功能
 
 ### 剪切板
-- Paste
+- [Paste](https://pasteapp.io/)
+  
+  Paste for Mac是Mac平台上一款专业的剪切板记录增强工具,它能够为您储存您在设备上复制您的所有内容,并将其储存在Paste Mac的历史记录中
 
 
 
