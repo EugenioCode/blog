@@ -2,8 +2,8 @@
 title: NPM
 date: 2022-03-21
 tags:
- - npm
- - node
+ - Npm
+ - Node
 ---
 # 列举一些实用的NPM包
 

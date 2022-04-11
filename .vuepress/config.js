@@ -10,7 +10,7 @@ module.exports = {
     showInMobile: false
   }],
   "head": [
-    ["link", { rel: "stylesheet", href: "https://at.alicdn.com/t/font_3259116_zemurtec45.css" }],
+    ["link", { rel: "stylesheet", href: "https://at.alicdn.com/t/font_3259116_81hcj1y3hxy.css" }],
     [
       "link",
       {
@@ -63,6 +63,11 @@ module.exports = {
       {
         "text": "前端",
         "items": [
+          {
+            "text": "Typescript",
+            "link": "/blogs/typescript.md",
+            "icon": "iconfont icon-typescript"
+          },
           {
             "text": "Html",
             "link": "/blogs/html.md",

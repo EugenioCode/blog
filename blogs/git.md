@@ -3,7 +3,7 @@ title: GIT使用
 date: 2022-03-16
 sidebar: 'auto'
 tags:
- - git
+ - Git
 ---
 
 :::tip
