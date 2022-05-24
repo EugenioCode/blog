@@ -14,7 +14,7 @@ Egg.js为企业级框架和应用而生的Node.js框架，Egg（简写）奉行�
 
 <!-- more -->
 
-##  一、 Egg.js初入
+##  一、 Egg.js项目创建与项目结构
 
 ### 1.1 安装
   ```bash
@@ -30,54 +30,29 @@ Egg.js为企业级框架和应用而生的Node.js框架，Egg（简写）奉行�
   ```bash
   npm run dev
   ```
+### 1.2 项目目录
+```bash
+- app                        - 项目开发的主目录，工作中的代码几乎都写在这里面
+-- controller                -- 控制器目录，所有的控制器都写在这个里面
+-- router.js                 -- 项目的路由文件
+- config                     - 项目配置目录，比如插件相关的配置
+-- config.default.js         -- 系统默认配置文件
+-- plugin.js                 -- 插件配置文件
+- logs                       -- 项目启动后的日志文件夹
+- node_modules               - 项目的运行/开发依赖包，都会放到这个文件夹下面
+- test                       - 项目测试/单元测试时使用的目录
+- run                        - 项目启动后生成的临时文件，用于保证项目正确运行
+- typings                    - TypeScript配置目录，说明项目可以使用TS开发
+- .eslintignore              - ESLint配置文件
+- .eslintrc                  - ESLint配置文件，语法规则的详细配置文件
+- .gitignore                 - git相关配置文件，比如那些文件归于Git管理，那些不需要
+- jsconfig.js                - js配置文件，可以对所在目录下的所有JS代码个性化支持
+- package.json               - 项目管理文件，包含包管理文件和命令管理文件
+- README.MD                  - 项目描述文件  
+```
+### 1.3 Egg.js的Controller的使用
+> Controller，也就是控制器，简单说Controller负责解析用户的输入，处理后返回相应的结果。
 
-### 1.2 项目目录结构
-
-  ```bash
-  .
-  ├── README.md
-  ├── app
-  │   ├── controller
-  │   │   └── home.js
-  │   ├── public
-  │   └── router.js
-  ├── appveyor.yml
-  ├── config
-  │   ├── config.default.js
-  │   └── plugin.js
-  ├── jsconfig.json
-  ├── logs
-  │   └── egg01
-  │       ├── common-error.log
-  │       ├── egg-agent.log
-  │       ├── egg-schedule.log
-  │       ├── egg-web.log
-  │       └── egg01-web.log
-  ├── package-lock.json
-  ├── package.json
-  ├── run
-  │   ├── agent_config.json
-  │   ├── agent_config_meta.json
-  │   ├── agent_timing_24173.json
-  │   ├── application_config.json
-  │   ├── application_config_meta.json
-  │   ├── application_timing_24176.json
-  │   └── router.json
-  ├── test
-  │   └── app
-  │       └── controller
-  │           └── home.test.js
-  └── typings
-      ├── app
-      │   ├── controller
-      │   │   └── index.d.ts
-      │   └── index.d.ts
-      └── config
-          ├── index.d.ts
-          └── plugin.d.ts
-  ```
-
-### 1.3 Egg.js的控制层
   ![controller](https://raw.githubusercontent.com/EugenioCode/picBed/main/20220322223024.png)
   - 配置页面的路由
     ```bash
@@ -85,7 +60,10 @@ Egg.js为企业级框架和应用而生的Node.js框架，Egg（简写）奉行�
     router.get('/list', controller.list.list);
     ```
     ![](https://raw.githubusercontent.com/EugenioCode/picBed/main/20220322223340.png)
-### 1.4 路由params传参
+
+## 二、请求与传参
+
+### 2.1 路由params传参
 
   > 在router中通过 `:id`，接受参数
   ```bash
@@ -102,7 +80,7 @@ Egg.js为企业级框架和应用而生的Node.js框架，Egg（简写）奉行�
    ```
   ![](https://raw.githubusercontent.com/EugenioCode/picBed/main/20220322225753.png)
 
-### 1.5 query的形式传参
+### 2.2 query的形式传参
 ```bash
  # app/router.js
  router.get('/list/page2', controller.list.page2);
@@ -116,14 +94,14 @@ async page2() {
   }
 ```
 ![](https://raw.githubusercontent.com/EugenioCode/picBed/main/20220322230039.png)
-### 1.6 返回状态码设置
+### 2.3 返回状态码设置
 > 通过`ctx.status`修改状态码
 ```js
 ctx.status = 201;
 ```
 ![](https://raw.githubusercontent.com/EugenioCode/picBed/main/20220322230545.png)
 
-### 1.7 post请求
+### 2.4 post请求
 - 配置csrf跨域相关配置
   
   安装跨域插件
@@ -187,119 +165,14 @@ ctx.status = 201;
   ```
   ![](https://raw.githubusercontent.com/EugenioCode/picBed/main/20220324232947.png)
 
-## 二、Egg.js渐入
+### 2.5 编写Service服务
 
-### 2.1 配置mysql数据库
-- 安装对应的插件 *egg-mysql*
-  ```bash
-  npm i --save egg-mysql
-  ```
-- 使用插件
-  ```js
-  // config/plugin.js
-  exports.mysql = {
-    enable: true,
-    package: 'egg-mysql',
-  };
-  ```
-- 配置数据库连接信息
-  ```js
-  // 单数据库信息配置
-    mysql: {
-      client: {
-        host: '127.0.0.1',
-        port: '3306',
-        user: 'root',
-        password: '',
-        database: 'eggapi',
-      },
-      app: true,
-      agent: false,
-    },
-  ```
-### 2.2 编写CURD语句
-- 增 (insert)
-  
-  可以直接使用 `insert` 方法插入一条记录。
-  > service层
-  ```js
-  // app/service/user.js
-  async insert(info) {
-    const user = await this.app.mysql.insert('user', info);
-    return { user };
-  }
-  ```
-  > controller层
-  ```js
-  // app/controller/user.js
-  async insertUser() {
-    const { ctx } = this;
-    const userInfo = ctx.request.body;
-    const result = await ctx.service.user.insert(userInfo);
-    if (result.user.affectedRows === 1) {
-      ctx.body = {
-        code: 200,
-        message: '用户创建成功',
-      };
-    } else {
-      ctx.body = {
-        code: 200,
-        message: '用户创建失败',
-      };
-    }
+## 三、Cookie与Session
 
-  }
-  ```
-  > router路由
-  ```js
-  router.post('/user/insertUser', controller.user.insertUser);
-  ```
+## 四、 Egg.js的中间件
 
-  ![](https://raw.githubusercontent.com/EugenioCode/picBed/main/20220327223430.png)
-- 删 (delete)
-- 改 (update)
-- 查 (get/select)
-  
-  可以直接使用 `get` 方法或 `select` 方法获取一条或多条记录。`select` 方法支持条件查询与结果的定制。
-  - 查询一条记录
-    > service层
-    ```js
-    async findById(uid) {
-      const user = await this.app.mysql.get('user', { id: uid });
-      return { user };
-    }
-    ```
-    > controller层
-    ```js
-    async findUserById() {
-      const { ctx } = this;
-      const { userId } = ctx.request.body;
-      const result = await ctx.service.user.findById(userId);
-      ctx.body = {
-        code: 200,
-        result,
-        message: 'success',
-      };
-    }
-    ```
-    ![](https://raw.githubusercontent.com/EugenioCode/picBed/main/20220327224505.png)
-  - 查询所有记录
-    > service层
-    ```js
-    async findAll() {
-      const users = await this.app.mysql.select('user');
-      return { users };
-    }
-    ```
-    >controller层
-    ```js
-    async findAllUser() {
-      const { ctx } = this;
-      const result = await ctx.service.user.findAll();
-      ctx.body = {
-        code: 200,
-        result,
-        message: 'success',
-      };
-    }
-    ```
+## 五、 Egg.js的Extend
+
+## 六、 Egg.js的定时任务
+
+## 七、Mysql查询
