@@ -7,7 +7,7 @@ tags:
 ---
 # 列举一些实用的NPM包
 
-## 一、切换`npm`源的工具—— `nrm`
+## 1. 切换`npm`源的工具 —— `nrm`
 
 ### 1.1 `nrm`的安装
 
@@ -50,3 +50,31 @@ nrm test [<name>]
 ```
 
 ![测试npm源速度](https://raw.githubusercontent.com/EugenioCode/picBed/main/20220321230122.png)
+
+## 2. 切换`node`版本的工具 —— `n`
+
+### 2.1 安装 `n`
+
+```shell
+npm install -g n
+```
+### 2.2 查看可用的 `node` 版本
+```shell
+n 
+```
+![](https://raw.githubusercontent.com/EugenioCode/picBed/main/20220624180809.png)
+### 2.3 基本命令
+```shell
+// 稳定版本
+n stable
+ 
+// 最新版
+n lastest
+ 
+// 指定版本
+n 16.15.1
+
+// 删除指定版本
+sudo n rm 16.15.1
+```
+

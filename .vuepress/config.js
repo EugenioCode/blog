@@ -3,12 +3,8 @@ module.exports = {
   "title": "Jianjun Yang's Blog",
   "description": "若不接受自己的卑微与渺小，我们很难发自内心地去尊重他人",
   "dest": "public",
-  plugins: ['one-click-copy', {
-    copySelector: ['div[class*="language-"] pre', 'div[class*="aside-code"] aside'],
-    copyMessage: '代码已复制',
-    duration: 300,
-    showInMobile: false
-  }],
+  plugins: ['tabs'],
+  "port": '8099',
   "head": [
     ["link", { rel: "stylesheet", href: "https://at.alicdn.com/t/font_3259116_81hcj1y3hxy.css" }],
     [
@@ -28,7 +24,7 @@ module.exports = {
   ],
   "theme": "reco",
   "themeConfig": {
-    modePicker: false,
+    "modePicker": false,
     "subSidebar": 'auto',
     "nav": [
       {
@@ -40,42 +36,42 @@ module.exports = {
       //   "link": "/timeline/",
       //   "icon": "reco-date"
       // },
-      {
-        "text": "工具/包",
-        "items": [
-          {
-            "text": "Git",
-            "link": "/blogs/git.md",
-            "icon": "iconfont icon-git"
-          },
-          {
-            "text": "Npm",
-            "link": "/blogs/npm.md",
-            "icon": "iconfont icon-npm"
-          },
-          {
-            "text": "Mac软件",
-            "link": "/blogs/mac.md",
-            "icon": "iconfont icon-macOS"
-          }
-        ]
-      },
+      // {
+      //   "text": "工具/包",
+      //   "items": [
+      //     {
+      //       "text": "Git",
+      //       "link": "/blogs/git.md",
+      //       "icon": "iconfont icon-git"
+      //     },
+      //     {
+      //       "text": "Npm",
+      //       "link": "/blogs/npm.md",
+      //       "icon": "iconfont icon-npm"
+      //     },
+      //     {
+      //       "text": "Mac软件",
+      //       "link": "/blogs/mac.md",
+      //       "icon": "iconfont icon-macOS"
+      //     }
+      //   ]
+      // },
       {
         "text": "前端",
         "items": [
           {
             "text": "Typescript",
-            "link": "/blogs/typescript.md",
+            "link": "/blogs/FrontEnd/typescript.md",
             "icon": "iconfont icon-typescript"
           },
           {
             "text": "Html",
-            "link": "/blogs/html.md",
+            "link": "/blogs/FrontEnd/html.md",
             "icon": "iconfont icon-html5"
           },
           {
             "text": "Vue",
-            "link": "/blogs/vue.md",
+            "link": "/blogs/FrontEnd/vue.md",
             "icon": "iconfont icon-vue"
           }
         ]
@@ -85,20 +81,19 @@ module.exports = {
         "items": [
           {
             "text": "Egg",
-            "link": "/blogs/egg.md",
+            "link": "/blogs/BackEnd/egg.md",
             "icon": "iconfont icon-Egg"
+          },
+          {
+            "text": "Mysql",
+            "link": "/blogs/BackEnd/mysql.md",
+            "icon": "iconfont icon-mysql"
           }
         ]
       },
       {
-        "text": "数据库",
-        "items": [
-          {
-            "text": "Mysql",
-            "link": "/blogs/mysql.md",
-            "icon": "iconfont icon-mysql"
-          }
-        ]
+        "text": "工具",
+        "link": "/docs/"
       },
       {
         "text": "Contact",
@@ -107,12 +102,12 @@ module.exports = {
       }
     ],
     "sidebar": {
-      // "/docs/theme-reco/": [
-      //   "",
-      //   "theme",
-      //   "plugin",
-      //   "api"
-      // ]
+      "/docs/": [
+        "",
+        "mac",
+        "git",
+        "npm"
+      ]
     },
     "type": "blog",
     "blogConfig": {

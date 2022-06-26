@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "author": "reco_luan",
   "scripts": {
-    "dev": "vuepress dev . --open --host \"localhost\"",
+    "dev": "vuepress dev . --open --host \"127.0.0.1\"",
     "build": "vuepress build .",
     "deploy": "bash deploy.sh"
   },
@@ -14,6 +14,9 @@
   },
   "description": "Blog-desc",
   "dependencies": {
+    "vue-tabs-component": "^1.5.0",
+    "vuepress-plugin-code-copy": "^1.0.6",
+    "vuepress-plugin-tabs": "^0.3.0",
     "watchman": "^1.0.0"
   }
 }
