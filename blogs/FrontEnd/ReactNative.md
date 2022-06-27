@@ -14,7 +14,7 @@ tags:
 
 :::: tabs cache-lifetime="10" :options="{ useUrlFragment: false }"
 
-::: tab "ios" id="first-tab"
+::: tab "ios"
 
 > 必须安装的依赖有：Node、Watchman、Xcode 和 CocoaPods
 
@@ -81,7 +81,45 @@ tags:
 
 ::::
 
+## 初始化项目
+- 创建新项目
+  ```shell
+  npx react-native init AwesomeProject
+  ```
+- [可选参数] 指定版本或项目模板
 
+  你可以使用--version参数（注意是两个杠）创建指定版本的项目。注意版本号必须精确到两个小数点。
+
+  ```shell
+  npx react-native init AwesomeProject --version X.XX.X
+  ```
+
+  还可以使用--template来使用一些社区提供的模板，例如带有TypeScript配置的：
+
+  ```shell
+  npx react-native init AwesomeTSProject --template react-native-template-typescript
+  ```
+- 编译并运行 React Native 应用
+  :::: tabs cache-lifetime="10" :options="{ useUrlFragment: false }"
+
+  ::: tab "ios"
+  ```shell
+    cd AwesomeProject
+    yarn ios
+    # 或者
+    yarn react-native run-ios
+  ```
+  <img src="https://raw.githubusercontent.com/EugenioCode/picBed/main/20220627173034.png" width="300" align=center>
+  :::
+  ::: tab "android"
+  ```shell
+    cd AwesomeProject
+    yarn android
+    # 或者
+    yarn react-native run-android
+  ```
+  <img src="https://raw.githubusercontent.com/EugenioCode/picBed/main/20220627173900.png" width="300" align=center>
+  :::
 
 ## 报错解决
 

@@ -134,14 +134,14 @@ module.exports = {
       //   "link": "https://vuepress-theme-reco.recoluan.com"
       // }
     ],
-    "logo": "/avatar.png",
+    "logo": "/avatar_new.png",
     "search": true,
     "searchMaxSuggestions": 10,
     "lastUpdated": "Last Updated",
     "author": "jianjun.yang",
-    "authorAvatar": "/avatar.png",
+    "authorAvatar": "/avatar_new.png",
     "record": "xxxx",
-    "startYear": "2017"
+    "startYear": "2020"
   },
   "markdown": {
     "lineNumbers": true
