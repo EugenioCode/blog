@@ -121,8 +121,62 @@ tags:
   <img src="https://raw.githubusercontent.com/EugenioCode/picBed/main/20220627173900.png" width="300" align=center>
   :::
 
+## React Native 样式与组件
+
+### StyleSheet
+
+引入：
+```js
+import {StyleSheet, Text, View} from 'react-native';
+```
+
+申明：
+```js
+const styles = StyleSheet.create({
+  sectionTitle: {
+    fontSize: 60,
+    fontWeight: '600',
+  },
+});
+```
+
+使用：
+```js
+const App = () => {
+  return (
+    <View>
+      <Text style={styles.sectionTitle}>hello world</Text>
+    </View>
+  );
+};
+```
+
+### FlexBox
+
+### 组件与API
+
+### 路由与导航
+
 ## 报错解决
 
+
+### CocoaPods依赖无法下载问题
+
+#### 如果创建项目出现下面的报错，说明ios相关的依赖无法被下载
+![](https://raw.githubusercontent.com/EugenioCode/picBed/main/20220630091503.png)
+
+- 可以参考的解决方案
+  1. 使用稳定的代理工具，多尝试几次安装。
+  2. 使用国内的`Pods`源
+  ```shell
+  $ cd ~/.cocoapods/repos 
+  $ pod repo remove master
+  $ git clone https://mirrors.tuna.tsinghua.edu.cn/git/CocoaPods/Specs.git master
+  ```
+  进入自己的工程，在自己工程的podFile第一行加上：
+  ```shell
+  source 'https://mirrors.tuna.tsinghua.edu.cn/git/CocoaPods/Specs.git'
+  ```
  ### 解决RN 运行报错 `No bundle url present`.错误解决方案
 
 1. 检查本地是否配置了 host 一定需要配置。mac 上直接安装一个SwitchHosts.
