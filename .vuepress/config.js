@@ -3,7 +3,6 @@ module.exports = {
   "title": "Jianjun Yang's Blog",
   "description": "若不接受自己的卑微与渺小，我们很难发自内心地去尊重他人",
   "dest": "public",
-  plugins: ['tabs'],
   "port": '8099',
   "head": [
     ["link", { rel: "stylesheet", href: "https://at.alicdn.com/t/font_3259116_81hcj1y3hxy.css" }],
